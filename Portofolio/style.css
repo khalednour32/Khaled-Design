@@ -1,0 +1,1007 @@
+:root{
+    --first: #0c1012;
+    --second: #e0e0e0;
+    --third: #39fa86;
+    --fourth: #05140a;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+    user-select: none;
+    direction: rtl;
+    font-family: "Cairo", serif;
+    width: 100%;
+    height: 100%;
+    padding-top: 70px;
+    background-color: var(--first);
+    opacity: 0;
+    animation: fadeInPage 1s ease-in-out forwards;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--third);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--first);
+}
+
+/* start nav */
+nav {
+    background-color: var(--first);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: var(--third) 0px 3px 8px;    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+nav.sticky {
+    background-color: var(--second);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav .logo{
+    margin-right: 50px;
+}
+
+nav .logo span {
+    color: var(--third);
+}
+
+nav .logo .alogo{
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--second);
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s all ease;
+}
+
+nav .logo .alogo:hover{
+    transform: translateY(-10px);
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 17px;
+    transition: max-height 0.3s ease;
+    align-items: center;
+}
+
+nav .nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: var(--second);
+    font-size: 17px;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+nav .nav-links a:hover {
+    background-color: transparent;
+    border-radius: 5px;
+    color: var(--third);
+}
+
+nav .nav-links button{
+    font-size: 17px;
+    font-weight: 600;
+    width: 100px;
+    font-family: "Cairo", serif;
+    background-color: var(--third);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: var(--first);
+    padding: 7px;
+    text-align: center;
+    border: var(--third) 1px solid;
+    margin-right: 200px;
+    margin-left: 20px;
+}
+
+nav .nav-links button:hover{
+    background-color: transparent;
+    color: var(--third);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--third);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: var(--first);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.show {
+        max-height: 510px;
+    }
+
+    nav .nav-links li {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    nav .nav-links a {
+        color: var(--second);
+        padding: 10px 20px;
+    }
+
+    nav .nav-links a:hover {
+        color: var(--third);
+        border-radius: 5px;
+    }
+
+    nav .nav-links button{
+        margin: 0;
+        margin-bottom: 10px;
+        background-color: var(--third);
+        border-radius: 5px;
+        color: var(--first);
+        width: 90%;
+    }
+}
+/* end nav */
+
+/* start header */
+header {
+    width: 100%;
+    height: 75vh;
+    background-color: #0c1012;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--third) 0px 3px 8px;    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: #39fa86;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(100px);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+header .content {
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+    color: #e0e0e0;
+    padding: 20px;
+    margin-right: 50px;
+    margin-top: 125px;
+}
+
+header h1 {
+    font-size: 4rem;
+    color: #39fa86;
+    margin: 0;
+    font-weight: bold;
+}
+
+header p {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+header p.description {
+    font-size: 1.5rem;
+    color: #b0b0b0;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.whatsapp-btn {
+    border: 1px var(--third) solid;
+    border-radius: 30px;
+    color: #0c1012;
+    background-color: #39fa86;
+    border-color: #39fa86;
+    position: relative;
+    transition: 0.3s all ease;
+}
+
+.whatsapp-btn:hover {
+    box-shadow: 0 0 15px #39fa86;
+    transform: scale(1.05);
+    animation: pulse 1s infinite;
+}
+
+.portfolio-btn {
+    border: 1px var(--second) solid;
+    border-radius: 30px;
+    color: #e0e0e0;
+}
+
+.portfolio-btn:hover {
+    background-color: transparent;
+    color: var(--third);
+    border: 1px var(--third) solid;
+}
+
+.mouse-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #39fa86;
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(5px);
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(20px, -20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+    }
+}
+
+header .headerimg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 70px;
+    margin-left: 100px;
+    width: 400px;
+    height: 400px;
+}
+
+header .elements .imgheader3{
+    width: 65px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    transform: translate(50%, 70%);
+}
+
+header .elements .imgheader2{
+    width: 65px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    transform: translate(130%, 30%);
+}
+
+header .elements .imgheader1{
+    width: 65px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    transform: translate(-80%, 170%);
+}
+
+header .elements {
+    transform: translate(-170%, 3%);
+    animation: elements 3s ease-in-out infinite alternate;
+}
+
+@keyframes elements {
+    0% {
+        transform: translate(-170%, 3%);
+    }
+    100% {
+        transform: translate(-170%, 15%); /* تحريك العنصر للأسفل */
+    }
+}
+/* end header */
+
+/* start whyus */
+.whyus {
+    height: 85vh;
+    box-shadow: var(--third) 0px 4px 6px -2px;
+}   
+.whyus .container {
+    margin: 50px auto;
+    width: 80%;
+    height: 75vh;
+}
+
+.whyus h2 {
+    font-size: 32px;
+    color: var(--second);
+}
+
+.whyus h2 span {
+    color: var(--third);
+}
+
+.whyus .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.whyus .card {
+    border: 2px solid var(--third);
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+.whyus .card:hover {
+    box-shadow: 0 0 20px var(--third), 0 0 40px #1aff66, 0 0 60px #1aff66;
+    transform: translateY(-5px);
+}
+
+.whyus .card i {
+    font-size: 40px;
+    color: var(--third);
+    margin-bottom: 15px;
+}
+
+.whyus .card h3 {
+    font-size: 24px;
+    color: var(--second);
+}
+
+.whyus .card p {
+    font-size: 16px;
+    color: #bbb;
+}
+/* end whyus */
+
+/* start portfolio */
+.portfolio {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: 50px auto;
+    height: 150vh;
+    box-shadow: var(--third) 0px 4px 6px -2px;
+}
+
+.portfolio h2 {
+    margin-right: 125px;
+    font-size: 32px;
+    color: var(--second);
+}
+
+.portfolio h2 span {
+    color: var(--third);
+}
+
+.portfolio .designes {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 98%;
+}
+
+.portfolio .designes img {
+    cursor: pointer;
+    width: 250px;
+    height: 250px;
+    height: auto;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.portfolio .designes img:hover {
+    filter: brightness(0.7);
+    transform: scale(1.1);
+}
+
+.portfolio .seemore {
+    padding: 10px;
+    border: 2px solid var(--third);
+    border-radius: 5px;
+    color: var(--second);
+    font-size: 22px;
+    text-decoration: none;
+    transition: 0.3s ease all; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.portfolio .seemore:hover {
+    background-color: var(--third);
+    color: var(--first);
+}
+/* end portfolio */
+
+/* start contact me */
+.contact {
+    box-shadow: var(--third) 0px 4px 6px -2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+    gap: 50px;
+    height: 85vh;
+    transition: transform 1s ease-in-out;
+}
+
+
+.form {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.form h2 {
+    margin-top: -100px;
+    font-size: 32px;
+    margin-right: 90px;
+    color: var(--second);
+    position: relative;
+}
+
+.form h2 span {
+    color: var(--third);
+}
+
+.form label {
+    font-size: 18px;
+    color: var(--second);
+    margin-bottom: 10px;
+}
+
+.form input, .form textarea {
+    border: 1px solid var(--third);
+    font-family: "Cairo", serif;
+    color: var(--second);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    width: 100%;
+    background-color: #181c1f;
+}
+
+.form input{
+    height: 50px;
+}
+
+.form textarea{
+    height: 150px;
+}
+
+.form input:focus, .form textarea:focus {
+    outline: none;
+    border-color: var(--third);
+    box-shadow: 0 0 10px var(--third);
+}
+
+.form button {
+    background-color: var(--third);
+    font-family: "Cairo", serif;
+    color: var(--first);
+    padding: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 175px;
+    text-align: center;
+}
+
+.form button:hover {
+    background-color: var(--third);
+    box-shadow: 0 0 15px var(--third);
+}
+
+.form button i {
+    font-size: 20px;
+}
+
+/* Left-side Info Section */
+.info {
+    margin-top: -70px;
+    background-color: #181c1f;
+    border: var(--third) solid 1px;
+    flex: 0.4;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: transform 1s ease-in-out;
+    animation: slideInFromRight 1s ease-out forwards;
+}
+
+.info i {
+    font-size: 30px;
+    color: var(--third);
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.info a {
+    text-decoration: none;
+    color: var(--second);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+}
+
+.info a:hover {
+    color: var(--third);
+    text-shadow: 0 0 5px var(--third);
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Make icons and text side by side */
+.info div i {
+    font-size: 30px;
+}
+
+.info div h3 {
+    font-size: 18px;
+}
+
+/* Hover effects for social links */
+.info .whatsapp:hover, .info .facebook:hover, .info .gmail:hover {
+    color: var(--third);
+}
+
+/* Input layout (column layout for form) */
+.form input, .form textarea {
+    width: 100%;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+/* end contact me */
+
+/* start footer */
+footer {
+    background: var(--first);
+    color: var(--second);
+    font-family: 'Tajawal', sans-serif;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 -5px 15px rgba(0, 255, 128, 0.3);
+}
+
+footer .foot1, 
+footer .foot2, 
+footer .foot3 {
+    margin-bottom: 30px;
+}
+
+.foot1 h2 {
+    font-size: 1.8em;
+    color: var(--third);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px var(--third);
+}
+
+.imgprog {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.imgprog img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.imgprog img:hover {
+    transform: scale(1.2);
+}
+
+.foot2 {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.foot2 a {
+    color: var(--third);
+    font-size: 1.3em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.foot2 a:hover {
+    color: var(--second);
+    text-shadow: 0 0 10px var(--third);
+    transform: translateY(-3px);
+}
+
+.foot3 {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.foot3 i {
+    font-size: 2em;
+    color: var(--third);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.foot3 i:hover {
+    color: var(--second);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--third);
+}
+
+@media (max-width: 768px) {
+    .imgprog img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .foot2 {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .foot3 {
+        flex-wrap: wrap;
+    }
+
+    .foot3 i {
+        font-size: 1.8em;
+    }
+}
+
+/* end footer */
+
+
+
+
+
+/* For Tablets (screen width: 768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    nav .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav .nav-links a {
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: var(--first);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.show {
+        max-height: 1000px;
+    }
+
+    nav .nav-links li {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    nav .nav-links a {
+        color: var(--second);
+        padding: 10px 20px;
+    }
+
+    nav .nav-links a:hover {
+        color: var(--third);
+        border-radius: 5px;
+    }
+
+    nav .nav-links button{
+        margin: 0;
+        margin-bottom: 10px;
+        background-color: var(--third);
+        border-radius: 5px;
+        color: var(--first);
+        width: 90%;
+    }
+
+    header img{
+        display: none;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    .whyus{
+        height: 125vh;
+    }
+
+    .whyus .container .card{
+        width: calc(50% - 20px);
+    }
+
+    .portfolio{
+        height: 140vh;
+    }
+
+    .portfolio h2 {
+        font-size: 28px;
+    }
+
+    .portfolio .designes img {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* For Large Screens (Desktops) */
+@media (min-width: 1024px) {
+    nav .nav-links {
+        gap: 30px;
+    }
+
+    header h1 {
+        font-size: 4.5rem;
+    }
+
+    .portfolio h2 {
+        font-size: 36px;
+    }
+
+    .portfolio .designes img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Ensure all images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Adjust font sizes for mobile */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header img{
+        display: none;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .whyus .container .card{
+        width: calc(50% - 20px);
+    }
+
+    .whyus {
+        height: 140vh;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .portfolio{
+        height: 200vh;
+    }
+
+    .portfolio .designes img {
+        width: calc(50% - 20px);
+        height: auto;
+    }
+
+    nav .nav-links {
+        flex-direction: column;
+    }
+
+    nav .nav-links button {
+        width: 80%;
+        margin-top: 10px;
+    }
+
+    .form {
+        width: 100%;
+    }
+}
+
+/* Adjust layout for very small screens (mobile portrait) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    header img{
+        display: none;
+    }
+
+    .whyus{
+        height: 250vh;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+
+    .portfolio {
+        height: 370vh;
+    }
+
+    .portfolio h2 {
+        font-size: 24px;
+    }
+
+    .portfolio .designes img {
+        width: 70%;
+        height: auto;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        height: 150vh;
+    }
+
+    .contact h2{
+        margin-top: 5px;
+    }
+
+    footer{
+        height: 70vh;
+    }
+}
+

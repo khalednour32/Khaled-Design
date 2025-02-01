@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- link css file -->
+        <link rel="stylesheet" href="style.css">
+        <!-- link icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- link fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+        <title>خالد نور | مصمم جرافيك</title>
+    </head>
+<body>
+    
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Cairo", serif;
+      background-color: #0c1012;
+      color: #fff;
+      opacity: 0;
+      animation: fadeInPage 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeInPage {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid #39fa86;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #39fa86;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(12, 16, 18, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal.open {
+      display: flex;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(57, 250, 134, 0.5);
+    }
+
+    .prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(57, 250, 134, 0.7);
+  color: #0c1012;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #39fa86;
+  box-shadow: 0 6px 8px #00000033;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+  left: 30px;
+}
+
+.next {
+  right: 30px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: #39fa86b3;
+  color: #0c1012;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.close:hover {
+  background-color: #39fa86;
+  box-shadow: 0 6px 8px #00000033;
+  transform: scale(1.1);
+}
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    footer {
+        margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 130px;
+  margin-bottom: 30px;
+  font-family: "Cairo", serif;
+}
+
+.filter-button {
+    font-family: "Cairo", serif;
+  padding: 10px 20px;
+  background-color: #39fa86;
+  color: #0c1012;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #2fd173;
+  transform: translateY(-2px);
+}
+
+.filter-button.active {
+  background-color: #0c1012;
+  color: #39fa86;
+  border: 2px solid #39fa86;
+}
+    </style>
+
+
+         <!-- start nav -->
+         <nav>
+            <div class="logo">
+                <a class="alogo" href="index.html"><p><span>خالد</span> نور</p></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="index.html">أهم مهاراتي</a></li>
+                <li><a href="seemore.html">البورتفوليو</a></li>
+                <li><a href="index.html">تواصل معي</a></li>
+                <button onclick="callPhoneNumber()">اتصل بي</button>
+            </ul>
+        </nav>
+        <!-- end nav -->
+
+
+        <!-- start gallery -->
+        <div class="filters">
+            <button class="filter-button active" data-filter="all">الكل</button>
+            <button class="filter-button" data-filter="youtube">الصور المصغرة لليوتيوب</button>
+            <button class="filter-button" data-filter="social-media">تصميمات السوشيال ميديا</button>
+            <button class="filter-button" data-filter="posters">البوسترات</button>
+            <button class="filter-button" data-filter="business-card">البطاقات الشخصية</button>
+          </div>
+
+          <div class="gallery">
+            <img src="imgs/designes/1.png" data-category="social-media" alt="Design 1" onclick="openModal(0)">
+            <img src="imgs/designes/2.png" data-category="social-media" alt="Design 2" onclick="openModal(1)">
+            <img src="imgs/designes/3.png" data-category="social-media" alt="Design 3" onclick="openModal(2)">
+            <img src="imgs/designes/4.jpg" data-category="social-media" alt="Design 4" onclick="openModal(3)">
+            <img src="imgs/designes/5.jpg" data-category="social-media" alt="Design 5" onclick="openModal(4)">
+            <img src="imgs/designes/6.png" data-category="social-media" alt="Design 6" onclick="openModal(5)">
+            <img src="imgs/designes/7.png" data-category="social-media" alt="Design 7" onclick="openModal(6)">
+            <img src="imgs/designes/8.png" data-category="social-media" alt="Design 8" onclick="openModal(7)">
+            <img src="imgs/designes/9.jpg" data-category="posters" alt="Design 9" onclick="openModal(8)">
+            <img src="imgs/designes/10.png" data-category="youtube" alt="Design 10" onclick="openModal(9)">
+            <img src="imgs/designes/11.png" data-category="social-media" alt="Design 11" onclick="openModal(10)">
+            <img src="imgs/designes/12.png" data-category="social-media" alt="Design 12" onclick="openModal(11)">
+            <img src="imgs/designes/13.png" data-category="social-media" alt="Design 13" onclick="openModal(12)">
+            <img src="imgs/designes/14.png" data-category="social-media" alt="Design 14" onclick="openModal(13)">
+            <img src="imgs/designes/15.png" data-category="social-media" alt="Design 15" onclick="openModal(14)">
+            <img src="imgs/designes/16.jpg" data-category="social-media" alt="Design 16" onclick="openModal(15)">
+            <img src="imgs/designes/17.png" data-category="social-media" alt="Design 17" onclick="openModal(16)">
+            <img src="imgs/designes/18.png" data-category="social-media" alt="Design 18" onclick="openModal(17)">
+            <img src="imgs/designes/19.jpg" data-category="posters" alt="Design 19" onclick="openModal(18)">
+            <img src="imgs/designes/20.png" data-category="social-media" alt="Design 20" onclick="openModal(19)">
+            <img src="imgs/designes/21.png" data-category="social-media" alt="Design 21" onclick="openModal(20)">
+            <img src="imgs/designes/22.jpg" data-category="social-media" alt="Design 22" onclick="openModal(21)">
+            <img src="imgs/designes/23.png" data-category="social-media" alt="Design 23" onclick="openModal(22)">
+            <img src="imgs/designes/24.png" data-category="social-media" alt="Design 24" onclick="openModal(23)">
+            <img src="imgs/designes/25.png" data-category="youtube" alt="Design 25" onclick="openModal(24)">
+          </div>
+        
+          <div class="modal" id="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <img id="modalImg" src="" alt="Modal Image">
+              <button class="prev" onclick="changeImage(-1)">&#10095;</button>
+              <button class="next" onclick="changeImage(1)">&#10094;</button>
+            </div>
+          </div>
+        <!-- end gallery -->
+        
+
+        <!-- start footer -->
+      <footer>
+        <div class="foot1">
+            <h2>البرامج اللي باستخدمها</h2>
+            <div class="imgprog">
+                <img src="imgs/adobe-photoshop-icon.png" alt="">
+                <img src="imgs/adobe-illustrator-icon.png" alt="">
+                <img src="imgs/adobe-premiere-pro-icon.png" alt="">
+            </div>
+        </div>
+
+        <div class="foot2">
+            <a href="index.html">الرئيسية</a>
+            <a href="index.html">أهم مهاراتي</a>
+            <a href="seemore.html">معرض أعمالي</a>
+            <a href="index.html">تواصل معي</a>
+        </div>
+
+        <div class="foot3">
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=100050544106376"><i class="fa-brands fa-facebook"></i></a>
+            <a target="_blank" href="https://wa.me/201558518261?text=اهلا خالد , اريد تصميم"><i class="fa-brands fa-whatsapp"></i></a>
+            <a target="_blank" href="https://t.me/K7aled_Nour?start=اهلا خالد , اريد تصميم"><i class="fa-brands fa-telegram"></i></a>
+            <a target="_blank" href="https://www.instagram.com/khaled1nour/"><i class="fa-brands fa-instagram"></i></a>
+            <a target="_blank" href="https://x.com/khalidNour38723"><i class="fa-brands fa-x-twitter"></i></a>
+            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=khaledhagar@gmail.com&su=استفسار&body=مرحباً%20خالد،%20أريد%20التحدث%20عن%20خدماتك."><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </footer>   
+     <!-- end footer -->
+
+
+
+     <script>
+        // calling
+function callPhoneNumber() {
+  window.location.href = 'tel:+201080732642';
+}
+
+// navbar menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    hamburger.classList.toggle('open');
+  });
+}
+
+// gallery of designs
+const images = [
+  "imgs/designes/1.png",
+  "imgs/designes/2.png",
+  "imgs/designes/3.png",
+  "imgs/designes/4.jpg",
+  "imgs/designes/5.jpg",
+  "imgs/designes/6.png",
+  "imgs/designes/7.png",
+  "imgs/designes/8.png",
+  "imgs/designes/9.jpg",
+  "imgs/designes/10.png",
+  "imgs/designes/11.png",
+  "imgs/designes/12.png",
+  "imgs/designes/13.png",
+  "imgs/designes/14.png",
+  "imgs/designes/15.png",
+  "imgs/designes/16.jpg",
+  "imgs/designes/17.png",
+  "imgs/designes/18.png",
+  "imgs/designes/19.jpg",
+  "imgs/designes/20.png",
+  "imgs/designes/21.png",
+  "imgs/designes/22.jpg",
+  "imgs/designes/23.png",
+  "imgs/designes/24.png",
+  "imgs/designes/25.png",
+];
+
+let currentIndex = 0;
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+
+function openModal(index) {
+  currentIndex = index;
+  modalImg.src = images[currentIndex];
+  modal.classList.add('open');
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+}
+
+function changeImage(direction) {
+  currentIndex = (currentIndex + direction + images.length) % images.length;
+  modalImg.src = images[currentIndex];
+}
+
+// Close modal when clicking outside the image
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+// Filter functionality
+const filterButtons = document.querySelectorAll('.filter-button');
+const galleryImages = document.querySelectorAll('.gallery img');
+
+// Assign default category to images without data-category
+galleryImages.forEach((img) => {
+  if (!img.getAttribute('data-category')) {
+    img.setAttribute('data-category', 'all');
+  }
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    filterButtons.forEach((btn) => btn.classList.remove('active'));
+    // Add active class to the clicked button
+    button.classList.add('active');
+
+    // Get the filter category
+    const filter = button.getAttribute('data-filter');
+
+    // Show or hide images based on the filter
+    galleryImages.forEach((img) => {
+      const category = img.getAttribute('data-category'); // Get the category
+      if (filter === 'all' || category === filter) {
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+    });
+  });
+});
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link css file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- link icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- link fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <title>خالد نور | مصمم جرافيك</title>
+</head>
+<body>
+    
+     <!-- start nav -->
+     <nav>
+        <div class="logo">
+            <a class="alogo" href="index.html"><p><span>خالد</span> نور</p></a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="active">الرئيسية</a></li>
+            <li><a href="#whyus">أهم مهاراتي</a></li>
+            <li><a href="#portfolio">البورتفوليو</a></li>
+            <li><a href="#contact">تواصل معي</a></li>
+            <button onclick="callPhoneNumber()">اتصل بي</button>
+        </ul>
+    </nav>
+    <!-- end nav -->
+
+    <!-- start header -->
+    <header id="home">
+        <div class="content">
+            <h1>مصمم جرافيك</h1>
+            <p>أحول أفكارك إلى تصاميم مميزة</p>
+            <p class="description">أقدم تصاميم مبتكرة تجذب الانتباه وتحقق النتائج المرجوة لعملك.</p>
+            <div class="buttons">
+                <a href="https://wa.me/201558518261?text=اهلا خالد , اريد تصميم" class="btn whatsapp-btn">
+                    تواصل معنا  <i class="fa fa-paper-plane"></i> 
+                </a>
+                <a href="#portfolio" class="btn portfolio-btn">
+                    معرض الأعمال <i class="fa fa-mouse-pointer"></i> 
+                </a>
+            </div>
+        </div>
+        
+        <img class="headerimg" src="imgs/header.png" alt="">
+        <div class="elements">
+         <img class="imgheader1" src="imgs/one.png" alt="">        
+         <img class="imgheader2" src="imgs/two.png" alt="">        
+         <img class="imgheader3" src="imgs/three.png" alt="">        
+        </div>
+    </header>
+    <!-- end header -->
+
+    <!-- start whyus -->
+     <div class="whyus" id="whyus">
+    <div class="container">
+        <h2>أهم<span> مهاراتي</span></h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>تصميمات المدرسين</h3>
+                <p>تصاميم مبتكرة للمدرسين زى ( شهادات التقدير - بوسترات - وغيرها كتير )</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-id-badge"></i>
+                <h3>تصميم كارت شخصي</h3>
+                <p>أقدر أصمم لك كارت شخصي إحترافي يحمل كل البيانات الخاصة بك </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-video"></i>
+                <h3>المونتاج</h3>
+                <p>مونتاج فيديوهات ( طويلة - ريلز ) بشكل مميز وجذاب</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-pen-nib fa-flip"></i>
+                <h3>تصميم الشعارات</h3>
+                <p>شعارات مميزة تعبر عن هوية علامتك التجارية بتصاميم احترافية</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-image"></i>
+                <h3>تصميم إعلانات السوشيال ميديا</h3>
+                <p>محتوى مرئي جذاب ومتناسق لمنصات التواصل الاجتماعي</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-image"></i>
+                <h3>تصميم الصور المصغرة لليوتيوب</h3>
+                <p>تصميم صور مصغرة لليوتيوب بشكل إحترافي يعكس محتوي الفيديو</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- end whyus -->
+
+    <!-- start portfolio -->
+     <div class="portfolio" id="portfolio">
+        <h2>شوف<span> البورتفوليو</span></h2>
+        <div class="designes">
+            <img src="imgs/designes/1.png" alt="">
+            <img src="imgs/designes/2.png" alt="">
+            <img src="imgs/designes/3.png" alt="">
+            <img src="imgs/designes/4.jpg" alt="">
+            <img src="imgs/designes/5.jpg" alt="">
+            <img src="imgs/designes/6.png" alt="">
+            <img src="imgs/designes/7.png" alt="">
+            <img src="imgs/designes/8.png" alt="">
+        </div>
+        <a class="seemore" href="seemore.html">شوف أكتر</a>
+     </div>
+    <!-- end portfolio -->
+
+    <!-- start contact me -->
+     <div class="contact" id="contact">
+        <div class="form">
+            <h2>تواصل<span> معي</span></h2>
+            <form id="login-form">
+                <label for="name">الإسم</label>
+                <input type="text" required  name="name" id="name">
+                <label for="email">رقم موبايل</label>
+                <input type="number" required  name="phone" id="phone" maxlength="11" minlength="11">
+                <label for="message">رسالتك</label>
+                <textarea name="message"  id="text"></textarea>
+                <button type="submit"> إبعت الرسالة <i class="fa-regular fa-paper-plane"></i></button>
+            </form>
+        </div>
+
+        <div class="info">
+            <a target="_blank" href="https://wa.me/201558518261?text=اهلا خالد , اريد تصميم">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>01558518261</h3>
+            </a>
+
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=100050544106376">
+                <i class="fa-brands fa-facebook"></i>
+                <h3>خالد نور </h3>
+            </a>
+
+            <a target="_blank" href="https://t.me/K7aled_Nour?start=اهلا خالد , اريد تصميم">
+                <i class="fa-brands fa-telegram"></i>
+                <h3>@K7aled_Nour</h3>
+            </a>
+         
+            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=khaledhagar@gmail.com&su=استفسار&body=مرحباً%20خالد،%20أريد%20التحدث%20عن%20خدماتك.">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>khaledhagar@gmail.com</h3>
+            </a>
+
+            <a target="_blank" href="https://khamsat.com/user/k7aled_nour">
+                <i class="fa-solid fa-5" style="color: #39fa86;"></i>
+                <h3>خمسات</h3>
+            </a>
+        </div>
+     </div>
+    <!-- end contact me -->
+
+     <!-- start footer -->
+      <footer>
+        <div class="foot1">
+            <h2>البرامج اللي باستخدمها</h2>
+            <div class="imgprog">
+                <img src="imgs/adobe-photoshop-icon.png" alt="">
+                <img src="imgs/adobe-illustrator-icon.png" alt="">
+                <img src="imgs/adobe-premiere-pro-icon.png" alt="">
+            </div>
+        </div>
+
+        <div class="foot2">
+            <a href="#home">الرئيسية</a>
+            <a href="#whyus">أهم مهاراتي</a>
+            <a href="#portfolio">معرض أعمالي</a>
+            <a href="#contact">تواصل معي</a>
+        </div>
+
+        <div class="foot3">
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=100050544106376"><i class="fa-brands fa-facebook"></i></a>
+            <a target="_blank" href="https://wa.me/201558518261?text=اهلا خالد , اريد تصميم"><i class="fa-brands fa-whatsapp"></i></a>
+            <a target="_blank" href="https://t.me/K7aled_Nour?start=اهلا خالد , اريد تصميم"><i class="fa-brands fa-telegram"></i></a>
+            <a target="_blank" href="https://www.instagram.com/khaled1nour/"><i class="fa-brands fa-instagram"></i></a>
+            <a target="_blank" href="https://x.com/khalidNour38723"><i class="fa-brands fa-x-twitter"></i></a>
+            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=khaledhagar@gmail.com&su=استفسار&body=مرحباً%20خالد،%20أريد%20التحدث%20عن%20خدماتك."><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </footer>   
+     <!-- end footer -->
+
+     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('a[href^="#"]').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 800); // 800ms duration
+        });
+    });
+</script>
+</body>
+</html>
